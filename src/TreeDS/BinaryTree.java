@@ -1,4 +1,6 @@
 package TreeDS;
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.*;
 public class BinaryTree {
     public BinaryTree(){
@@ -76,10 +78,34 @@ public class BinaryTree {
         if(node == null){
             return;
         }
-        System.out.println(node.data);
+        System.out.print(node.data + " ");
         preOrder(node.left);
         preOrder(node.right);
     }
+    public void inOrder(){
+        inOrder(root);
+    }
+    private void inOrder(Node node){
+        if(node == null){
+            return;
+        }
+        inOrder(node.left);
+        System.out.print(node.data +" ");
+        inOrder(node.right);
+    }
+    public void postOrder(){
+        inOrder(root);
+    }
+
+    private void postOrder(Node node){
+        if(node == null){
+            return;
+        }
+        postOrder(node.left);
+        postOrder(node.right);
+        System.out.print(node.data + " ");
+    }
+
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -87,5 +113,7 @@ public class BinaryTree {
         tree.populate(sc);
 //        tree.preetyDisplay();
         tree.preOrder();
+        tree.inOrder();
+        tree.postOrder();
     }
 }
