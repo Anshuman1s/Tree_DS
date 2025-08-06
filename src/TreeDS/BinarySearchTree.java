@@ -48,6 +48,19 @@ public class BinarySearchTree {
             this.insert(arr[i]);
         }
     }
+//    For sorted data
+    public void  populateSorted(int[] arr){
+        populateSorted(arr,0,arr.length);
+    }
+    private void populateSorted(int [] arr, int start , int end){
+        if(start >= end){
+            return;
+        }
+        int mid = (start  + end)/2;
+        this.insert(arr[mid]);
+        populateSorted(arr,start,mid);
+        populateSorted(arr,mid+1,end);
+    }
     public boolean balanced(){
         return balanced(root);
     }
